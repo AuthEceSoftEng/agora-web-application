@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app='AgoraModule'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<title>AGORA Search Engine - API Search</title>
+<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
+<link href="../css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../css/asearch.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../css/github.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../css/about.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="../css/jsonviewer.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body class='index'>
+	<div class='container'>
+		<div id="sidebar">
+			<div id="sheadern">
+				<a href="../">
+					<img style="border: 0;" src="../css/logosmall.svg" alt="AGORA Search Engine">
+				</a>
+			</div>
+			<div class="bwrapper">
+				<a href="../search"><button id='routebutton'>Simple Search</button></a><br>
+				<a href="../asearch"><button id='routebutton'>Advanced Search</button></a><br>
+				<a href="../ssearch"><button id='routebutton'>Snippet Search</button></a><br>
+				<a href="../psearch"><button id='routebutton'>Project Search</button></a>
+				<p style="margin-top: 25px; line-height: 25px;">
+					&copy; Copyright AGORA 2014<br>
+					<a href="">API</a> |
+					<a href="../help">Help</a> |
+					<a href="../about">About</a> |
+					<a href="../disclaimer">Disclaimer</a>
+				</p>
+			</div>
+		</div>
+
+		<div ng-controller='AgoraCtrlApi'>
+			<section class='searchField'>
+				<a><button id='routebuttonsmall'>API</button></a>
+				<a href="../help"><button id='routebuttonsmall'>Help</button></a>
+				<a href="../about"><button id='routebuttonsmall'>About</button></a>
+				<a href="../disclaimer"><button id='routebuttonsmall'>Disclaimer</button></a><br>
+			</section>
+
+			<section style="max-width: 669px; text-align: justify; margin-bottom: 24px;">
+				AGORA has a comprehensive API for searching. The API conforms to the Query DSL of
+				Elasticsearch available
+				<a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html" target="_blank">here</a>.
+				The API is RESTful and the form of the queries is JSON. Since you can form your queries from any language of your choice,
+				we do not provide any language-specific examples. Instead, we provide examples of JSON query strings. Currently one can
+				send requests on the API in the following address:
+				<br><div style="text-align: center; font-family: monospace;">http://agora.ee.auth.gr:9200</div><br>
+				A simple way of sending a query is by using CURL. CURL queries have the following form:
+				<br><div style="text-align: center; font-family: monospace;">curl -XPOST http://agora.ee.auth.gr:9200/_search -d 'query'</div>
+				where <a style="font-family: monospace;">query</a> must be replaced with the JSON string. The single quotation marks (') must be left intact while the query string
+				must have double quotation marks (") for keys and values.
+				<br><br>
+				In this page you are encouraged to debug your queries to AGORA. Write your query in the following textbox and press search.
+				Then the query and the response will appear below the textbox. Here are some examples to get you started: 
+				<section style="margin-left: 8px; margin-top: 10px; margin-bottom: 0px; width: 670px;">
+					<form ng-submit='search("example1")'>
+						<input type='submit' value='Search for class "Stack" with methods "int pop" and "void push"' id='examplesubmit'>
+					</form><br>
+					<form ng-submit='search("example2")'>
+						<input type='submit' value='Search for class "Export" that extends "WizardPage" and the file imports "eclipse"' id='examplesubmit'>
+					</form><br>
+					<form ng-submit='search("example3")'>
+						<input type='submit' value='Search for project with three classes implementing "Model", "View", and "Controller" and one extending "JFrame"' id='examplesubmit'>
+					</form><br><br>
+					<form ng-submit='search("example4")'>
+						<input type='submit' value='Search for a code snippet in the "analyzedcontent" field' id='examplesubmit'>
+					</form><br>
+				</section>
+			</section>
+
+			<section class='ssearchField'>
+				<form ng-submit='search()'>
+					<textarea ng-model='searchTerm' type='text' id='search'></textarea>
+					<input type='submit' value='Search for code' id='submit'>
+					<!--br><br><a href="" ng-click='prettify()'>Prettify</a-->
+				</form>
+			</section>
+			<section class='results' ng-cloak>
+				<!--div><pre>{{searchQuery | json}}</pre></div-->
+				<div ng-hide='hideError'>{{stringError}}</div>
+				<h3 ng-hide='hideQuery' style="margin-bottom: -5px;">CURL Query</h3>
+				<!-- <div ng-hide='hideQuery' style="margin-left: 100px; max-width: 1000px; text-indent: -100px; min-width: 500px;">{{curlQuery}}</div> -->
+				<textarea id='curlview' readonly ng-hide='hideQuery' ng-model='curlQuery' wrap="off" rows="1" cols="100"></textarea>
+				<h3 ng-hide='hideQuery' style="margin-bottom: -5px;">Query</h3>
+				<json-explorer ng-hide='hideQuery' json-data="{{stringSearchQuery}}"></json-explorer>
+		        <!-- UNCOMMENT THIS LINE TO USE BUILT-IN JSON VIEWER (WITHOUT COLLAPSIBLE NODES) -->
+				<!-- <div hljs ng-hide='hideQuery' source="stringSearchQuery"></div> -->
+				<h3 ng-hide='hideResults' style="margin-bottom: -5px;">Result</h3>
+		        <!-- UNCOMMENT THIS LINE TO USE BUILT-IN JSON VIEWER (WITHOUT COLLAPSIBLE NODES) -->
+				<!-- <div hljs ng-hide='hideResults' source="theresult"></div> -->
+				<json-explorer ng-hide='hideResults' json-data="{{theresult}}"></json-explorer>
+			</section>
+		</div>
+
+	</div>
+	<script src="../bower_components/angular/angular.js" type="text/javascript"></script>
+	<script src="../bower_components/angular-sanitize/angular-sanitize.js" type="text/javascript"></script>
+	<script src="../bower_components/elasticsearch/elasticsearch.angular.js" type="text/javascript"></script>
+	<script src="../bower_components/file-saver/FileSaver.js" type="text/javascript"></script>
+	<script src="../bower_components/highlightjs/highlight.pack.min.js"></script>
+	<script src="../bower_components/angular-highlightjs/angular-highlightjs.js" type="text/javascript"></script>
+	<script src="../bower_components/ng-json-explorer/src/gd-ui-jsonexplorer.js" type="text/javascript"></script>
+	<script src="../js/commonmethods.js" type="text/javascript"></script>
+	<script src="../js/angular-highlightjs.custom.js" type="text/javascript"></script>
+	<script src="../js/script.js" type="text/javascript"></script>
+	<script src="../js/directives.js" type="text/javascript"></script>
+	<script src="../js/search.js" type="text/javascript"></script>
+	<script src="../js/ssearch.js" type="text/javascript"></script>
+	<script src="../js/asearch.js" type="text/javascript"></script>
+	<script src="../js/psearch.js" type="text/javascript"></script>
+	<script src="../js/apisearch.js" type="text/javascript"></script>
+	<script src="../js/project.js" type="text/javascript"></script>
+	<script src="../js/file.js" type="text/javascript"></script>
+</body>
+</html>

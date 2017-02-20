@@ -1,0 +1,18 @@
+{
+  "name": "agora",
+  "description": "AGORA Code Search Engine",
+  "dependencies": {
+    "angular": "1.6.1",
+    "angular-sanitize": "1.6.1",
+    "elasticsearch": "12.1.3",
+    "file-saver": "1.3.3",
+    "highlightjs": "9.9.0",
+    "angular-highlightjs": "0.3.0",
+    "ng-json-explorer": "51c0f84be165683c5153f2bbd58ae6a9189381a3"
+  },
+  "resolutions": {
+    "angular": "1.6.1",
+    "highlightjs": "9.9.0"
+  },
+  "private": true
+}

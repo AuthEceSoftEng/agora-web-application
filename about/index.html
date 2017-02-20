@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app='AgoraModule'>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<title>AGORA Search Engine - About</title>
+<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
+<link href="../css/about.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body class='index'>
+	<div class='container'>
+		<div id="sidebar">
+			<div id="sheadern">
+				<a href="../">
+					<img style="border: 0;" src="../css/logosmall.svg" alt="AGORA Search Engine">
+				</a>
+			</div>
+			<div class="bwrapper">
+				<a href="../search"><button id='routebutton'>Simple Search</button></a><br>
+				<a href="../asearch"><button id='routebutton'>Advanced Search</button></a><br>
+				<a href="../ssearch"><button id='routebutton'>Snippet Search</button></a><br>
+				<a href="../psearch"><button id='routebutton'>Project Search</button></a>
+				<p style="margin-top: 25px; line-height: 25px;">
+					&copy; Copyright AGORA 2014<br>
+					<a href="../api">API</a> |
+					<a href="../help">Help</a> |
+					<a href="">About</a> |
+					<a href="../disclaimer">Disclaimer</a>
+				</p>
+			</div>
+		</div>
+
+		<div>
+			<section class='searchField'>
+				<a href="../api"><button id='routebuttonsmall'>API</button></a>
+				<a href="../help"><button id='routebuttonsmall'>Help</button></a>
+				<a><button id='routebuttonsmall'>About</button></a>
+				<a href="../disclaimer"><button id='routebuttonsmall'>Disclaimer</button></a><br>
+			</section>
+
+			<section style="max-width: 669px; text-align: justify; margin-bottom: 24px;">
+				AGORA is a search engine for source code that offers the most advanced features in order to help developers find the
+				source code that they need. Apart from simple code search, AGORA provides a number of different options including
+				advanced syntax-aware search, snippet search and search for projects. Additionally an open API is provided for any
+				developers wishing to use the service by creating their own client. <br> <br> The term "agora" refers to
+				the central spot of ancient Greek city-states. Back then, "agora" was more than a "market", it was a place where
+				people met to trade goods but also exchange ideas. It is a good fit for our search engine since we envision it as a
+				place where developers can (freely) distribute and exchange their source code, and subsequently their ideas. <br><br>
+				AGORA has been developed in the
+				<a href="http://issel.ee.auth.gr/" target="_blank">Intelligent Systems & Software Engineering Lab (ISSEL)</a>
+				of the
+				<!-- <a href="http://ipl.ee.auth.gr/" target="_blank">Information Processing Laboratory (IPL)</a> of the -->
+				<a href="http://ee.auth.gr/en/" target="_blank">School of Electrical & Computer Engineering</a> of the
+				Aristotle University of Thessaloniki. For any questions or suggestions, feel free to contact Themistoklis Diamantopoulos
+				at the email thdiaman[at]issel[dot]ee[dot]auth[dot]gr
+			</section>
+			<section style="max-width: 669px; text-align: center; margin: 24px 0px;">
+				Created by Themistoklis Diamantopoulos<br> supervised by Andreas Symeonidis
+			</section>
+			<section style="max-width: 669px; text-align: left; margin: 24px 0px;">
+				<p style="text-decoration: underline; margin: 0;">People that used AGORA for their work:</p>
+				Nikos Katirtzis<br> Antonis Noutsos
+			</section>
+		</div>
+	</div>
+	<script src="../bower_components/angular/angular.js" type="text/javascript"></script>
+	<script src="../bower_components/angular-sanitize/angular-sanitize.js" type="text/javascript"></script>
+	<script src="../bower_components/elasticsearch/elasticsearch.angular.js" type="text/javascript"></script>
+	<script src="../bower_components/file-saver/FileSaver.js" type="text/javascript"></script>
+	<script src="../bower_components/highlightjs/highlight.pack.min.js"></script>
+	<script src="../bower_components/angular-highlightjs/angular-highlightjs.js" type="text/javascript"></script>
+	<script src="../bower_components/ng-json-explorer/src/gd-ui-jsonexplorer.js" type="text/javascript"></script>
+	<script src="../js/commonmethods.js" type="text/javascript"></script>
+	<script src="../js/angular-highlightjs.custom.js" type="text/javascript"></script>
+	<script src="../js/script.js" type="text/javascript"></script>
+	<script src="../js/directives.js" type="text/javascript"></script>
+	<script src="../js/search.js" type="text/javascript"></script>
+	<script src="../js/ssearch.js" type="text/javascript"></script>
+	<script src="../js/asearch.js" type="text/javascript"></script>
+	<script src="../js/psearch.js" type="text/javascript"></script>
+	<script src="../js/apisearch.js" type="text/javascript"></script>
+	<script src="../js/project.js" type="text/javascript"></script>
+	<script src="../js/file.js" type="text/javascript"></script>
+</body>
+</html>

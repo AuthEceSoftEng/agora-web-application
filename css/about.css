@@ -1,0 +1,101 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body{
+  font: 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  line-height: 24px;
+  min-width: 1020px;
+}
+
+li{
+  margin-top: 3px;
+  list-style-type: none;
+  list-style: none;
+}
+
+ul{
+  list-style-type: none;
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.searchField{
+    position:relative;
+    border-radius:16px;
+    margin: 48px 0px 0px;
+    min-width: 700px;
+}
+
+.container { position:relative; padding:0 0 0 350px; }
+#sidebar {
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:340px;
+    background-color: azure;
+    min-height: 500px;
+}
+
+.bwrapper {
+    text-align: center;
+    line-height: 80px;
+}
+
+#routebutton {
+    border: 1px solid #00748f;
+    height: 42px;
+    cursor: pointer;
+    font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fafafa;
+    text-transform: uppercase;    
+    background-color: #0483a0;
+    border-radius: 3px;      
+    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #ffffff;
+    min-width: 200px;
+}
+#routebutton:hover,
+#routebutton:focus {       
+    background-color: #31b2c3;
+    background-image: linear-gradient(top, #0483a0, #31b2c3);
+}   
+
+#routebuttonsmall {
+    border: 1px solid #00748f;
+    height: 42px;
+    cursor: pointer;
+    font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fafafa;
+    text-transform: uppercase;    
+    background-color: #0483a0;
+    border-radius: 3px;      
+    text-shadow: 0 1px 0 rgba(0, 0 ,0, .3);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #ffffff;
+    min-width: 164px;
+}
+#routebuttonsmall:hover,
+#routebuttonsmall:focus {       
+    background-color: #31b2c3;
+    background-image: linear-gradient(top, #0483a0, #31b2c3);
+}   
+
+#examplesubmit {
+    cursor: pointer;
+    min-width: 650px;
+    max-width: 650px;
+    white-space: normal;
+    margin: 2px 0;
+}
+
+#sheadern{
+  padding-top: 5px;
+  padding-right: 3px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+header, section, footer{
+  margin: 48px 0;
+}
+
