@@ -10,7 +10,7 @@ window.AgoraModule = angular.module('AgoraModule', ['elasticsearch', 'hljs', 'ng
 AgoraModule.factory('fileService',
 		['$q', 'esFactory', '$location', function($q, elasticsearch, $location){
 			var client = elasticsearch({
-				host: $location.host() + ":9200"
+				host: $location.host() + ":8080"
 			});
 
 			/**

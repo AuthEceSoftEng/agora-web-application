@@ -13,6 +13,9 @@ angular.module('AgoraModule').controller('AgoraCtrlApi', ['fileService', '$scope
     $scope.searchQuery = null;
     $scope.stringError = null;
 
+    $scope.apiLocation = $location.protocol() + "://" + $location.host() + ':8080';
+    $scope.apiSampleQuery = "curl -XPOST " + $scope.apiLocation + "/_search -d 'query'";
+
 	/**
 	 * A fresh search. Reset the scope variables to their defaults, set
 	 * the q query parameter, and load more results.
@@ -85,7 +88,7 @@ angular.module('AgoraModule').controller('AgoraCtrlApi', ['fileService', '$scope
 				$scope.hideQuery = false;
 
 				$scope.stringSearchQuery = syntaxHighlight($scope.searchQuery);
-				$scope.curlQuery = 'curl -XPOST http://agora.ee.auth.gr:9200/_search -d \'' + JSON.stringify($scope.searchQuery) + '\'';
+				$scope.curlQuery = 'curl -XPOST ' + $scope.apiLocation + '/_search -d \'' + JSON.stringify($scope.searchQuery) + '\'';
 				//$scope.curlQuery = $scope.curlQuery.replaceAll('\n', '');
 
 				files.apiSearch($scope.searchQuery, $scope.page++).then(function(result){
@@ -96,7 +99,7 @@ angular.module('AgoraModule').controller('AgoraCtrlApi', ['fileService', '$scope
 			}
 			catch(error){
 				$scope.stringSearchQuery = '{"match_all":""}';
-				$scope.curlQuery = 'curl -XPOST http://agora.ee.auth.gr:9200/_search -d \'' + $scope.stringSearchQuery + '\'';
+				$scope.curlQuery = 'curl -XPOST ' + $scope.apiLocation + '/_search -d \'' + $scope.stringSearchQuery + '\'';
 			//	$scope.curlQuery = $scope.curlQuery.replaceAll('\n', '');
 				$scope.hideError = false;
 				$scope.hideQuery = true;

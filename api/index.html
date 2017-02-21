@@ -49,9 +49,9 @@
 				The API is RESTful and the form of the queries is JSON. Since you can form your queries from any language of your choice,
 				we do not provide any language-specific examples. Instead, we provide examples of JSON query strings. Currently one can
 				send requests on the API in the following address:
-				<br><div style="text-align: center; font-family: monospace;">http://agora.ee.auth.gr:9200</div><br>
+				<br><div style="text-align: center; font-family: monospace;">{{apiLocation}}</div><br>
 				A simple way of sending a query is by using CURL. CURL queries have the following form:
-				<br><div style="text-align: center; font-family: monospace;">curl -XPOST http://agora.ee.auth.gr:9200/_search -d 'query'</div>
+				<br><div style="text-align: center; font-family: monospace;">{{apiSampleQuery}}</div>
 				where <a style="font-family: monospace;">query</a> must be replaced with the JSON string. The single quotation marks (') must be left intact while the query string
 				must have double quotation marks (") for keys and values.
 				<br><br>
