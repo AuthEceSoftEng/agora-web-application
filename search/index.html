@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html ng-app='AgoraModule'>
 <head>
-<meta charset='utf-8'>
-<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-<title>AGORA Search Engine - Simple Search</title>
-<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
-<link href="../css/screen.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../css/asearch.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../css/github.css" media="screen" rel="stylesheet" type="text/css" />
+	<meta charset='utf-8'>
+	<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+	<title>AGORA Search Engine - Simple Search</title>
+	<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
+	<link href="../css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../css/asearch.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../css/github.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class='index'>
 	<div class='container'>
@@ -35,8 +35,8 @@
 		<div ng-controller='AgoraCtrlSearch'>
 			<section class='searchField'>
 				<form ng-submit='search()'>
-					<input ng-model='searchTerm' type='text' id='search'> <input type='submit' value='Search for code'
-						id='submit'>
+					<input ng-model='searchTerm' type='text' id='search'>
+					<input type='submit' value='Search for code' id='submit'>
 				</form>
 			</section>
 			<section class='results' ng-cloak>
@@ -47,14 +47,15 @@
 					<h3>
 						<my-view id="viewcontent" dataname='{{file.path}}' datapath='{{file.fullpathname}}'></my-view>
 					</h3>
-					<p>Project: <my-project-view id="viewcontent" dataname='{{file.project}}' datapath='{{file.project}}'></my-project-view></p>
 					<p>
-					<div ng-show='file.fragment && file.fragment.content' hljs language="java" source="file.fragment.content"></div>
-					<my-download ng-style="cusStyle" id="content" dataname="{{file.name}}" datacontent="{{file.content}}"
-						ng-click="cusStyle={color:'#551A8B'};"></my-download>
-					<a ng-href='https://github.com/{{file.project}}/blob/master/{{file.path}}' target="_blank">See at GitHub</a>
+						Project:
+						<my-project-view id="viewcontent" dataname='{{file.project}}' datapath='{{file.project}}'></my-project-view>
 					</p>
-
+					<p>
+						<div ng-show='file.fragment && file.fragment.content' hljs language="java" source="file.fragment.content"></div>
+						<my-download ng-style="cusStyle" id="content" dataname="{{file.name}}" datacontent="{{file.content}}" ng-click="cusStyle={color:'#551A8B'};"></my-download>
+						<a ng-href='https://github.com/{{file.project}}/blob/master/{{file.path}}' target="_blank">See at GitHub</a>
+					</p>
 				</article>
 				<section class='searchField' ng-cloak ng-hide='hideMoreResults'>
 					<form ng-submit='loadMore()'>

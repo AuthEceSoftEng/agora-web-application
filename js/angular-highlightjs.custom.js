@@ -1,3 +1,7 @@
+/**
+ * Custom module that overrides angular-highlightjs to highlight also certain
+ * keywords in the code, defined by the html tags "eshi"
+ */
 angular.module('hljs').controller('HljsCtrl', [
     'hljsCache', 'hljsService',
     function HljsCtrl (hljsCache,   hljsService) {

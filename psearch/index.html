@@ -2,13 +2,13 @@
 "http://www.w3.org/TR/html4/strict.dtd">
 <html ng-app='AgoraModule'>
 <head>
-<meta charset='utf-8'>
-<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-<title>AGORA Search Engine - Project Search</title>
-<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
-<link href="../css/screen.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../css/psearch.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="../css/github.css" media="screen" rel="stylesheet" type="text/css" />
+	<meta charset='utf-8'>
+	<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+	<title>AGORA Search Engine - Project Search</title>
+	<link rel="shortcut icon" href="../css/logoicon.ico" type="image/x-icon" />
+	<link href="../css/screen.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../css/psearch.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="../css/github.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body class='index'>
 	<div class='container'>
@@ -35,49 +35,62 @@
 
 		<div ng-controller='AgoraCtrlPSearch'>
 			<section class='asearchField'>
-			<form ng-submit='search()'>
-				<div>
-					<fieldset id="asearchfieldset">
-						<legend>Classes</legend>
-						<div data-ng-repeat="tclass in tclasses track by tclass.id">
-							<fieldset id="asearchfieldset">
-								<legend>Class</legend>
-
+				<form ng-submit='search()'>
+					<div>
+						<fieldset id="asearchfieldset">
+							<legend>Classes</legend>
+							<div data-ng-repeat="tclass in tclasses track by tclass.id">
+								<fieldset id="asearchfieldset">
+									<legend>Class</legend>
+	
+									<div>
+										<label id="clabela">Name</label>
+										<input ng-model='tclass.name' type='text' id="cinputfirst">
+										<label id="clabel" for="isinterface">Interface</label>
+										<input type="checkbox" ng-model='tclass.interface' id="isinterface">
+									</div>
+									<div>
+										<label id="clabela">Extends</label>
+										<input ng-model='tclass.extends' type='text' id="cinput">
+										<label id="clabel">Implements</label>
+										<input ng-model='tclass.implements' type='text' id="cinput">
+									</div>
+									<div>
+										<label id="clabela">Imports</label>
+										<input ng-model='tclass.imports' type='text' id="cinput">
+										<label id="clabel">Package</label>
+										<input ng-model='tclass.package' type='text' id="cinput">
+									</div>
+								</fieldset>
+								<br>
 								<div>
-									<label id="clabela">Name</label><input ng-model='tclass.name' type='text' id="cinputfirst"> <label id="clabel" for="isinterface">Interface</label><input
-										type="checkbox" ng-model='tclass.interface' id="isinterface">
+									<button type="button" ng-show="showAddClass(tclass)" ng-click="addNewClass()" id='plusminus'>&#43;</button>
+									<button type="button" ng-show="showRemoveClass(tclass)" ng-click="removeClass()" id='plusminus'>&#8722;</button>
 								</div>
-								<div>
-									<label id="clabela">Extends</label><input ng-model='tclass.extends' type='text' id="cinput"> <label id="clabel">Implements</label><input
-										ng-model='tclass.implements' type='text' id="cinput">
-								</div>
-								<div>
-									<label id="clabela">Imports</label><input ng-model='tclass.imports' type='text' id="cinput"> <label id="clabel">Package</label><input
-										ng-model='tclass.package' type='text' id="cinput">
-								</div>
-							</fieldset>
-							<br><div>
-							<button type="button" ng-show="showAddClass(tclass)" ng-click="addNewClass()" id='plusminus'>&#43;</button>
-							<button type="button" ng-show="showRemoveClass(tclass)" ng-click="removeClass()" id='plusminus'>&#8722;</button>
 							</div>
-						</div>
-					</fieldset>
-				</div>
-				<input type='submit' value='Search for code' id='submit'>
-			</form>
+						</fieldset>
+					</div>
+					<input type='submit' value='Search for code' id='submit'>
+				</form>
 			</section>
 			<section class='results' ng-cloak> <!--div><pre>{{searchQuery | json}}</pre></div-->
-			<div class='no-files' ng-hide='hideNoResults'>No results</div>
-			<div class='no-files' ng-hide='hideResults'>Found {{total}} results in {{took}} seconds</div>
-			<article class='file' ng-cloak ng-repeat='project in projects'>
-			<h3><my-project-view id="viewcontent" dataname='{{project.name}}' datapath='{{project.fullname}}'></my-project-view></h3>
-			<p>User: {{project.user}}</p>
-			<p><a ng-href='https://github.com/{{project.fullname}}' target="_blank">See at GitHub</a></p>
-			</article> <section class='searchField' ng-cloak ng-hide='hideMoreResults'>
-			<form ng-submit='loadMore()'>
-				<input type='submit' value='Load More Results' id='submit'>
-			</form>
-			</section> </section>
+				<div class='no-files' ng-hide='hideNoResults'>No results</div>
+				<div class='no-files' ng-hide='hideResults'>Found {{total}} results in {{took}} seconds</div>
+				<article class='file' ng-cloak ng-repeat='project in projects'>
+					<h3>
+						<my-project-view id="viewcontent" dataname='{{project.name}}' datapath='{{project.fullname}}'></my-project-view>
+					</h3>
+					<p>User: {{project.user}}</p>
+					<p>
+						<a ng-href='https://github.com/{{project.fullname}}' target="_blank">See at GitHub</a>
+					</p>
+				</article>
+				<section class='searchField' ng-cloak ng-hide='hideMoreResults'>
+					<form ng-submit='loadMore()'>
+						<input type='submit' value='Load More Results' id='submit'>
+					</form>
+				</section>
+			</section>
 		</div>
 
 	</div>
