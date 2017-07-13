@@ -538,7 +538,7 @@ angular.module('AgoraModule').controller('AgoraCtrlAdvanced', [ 'fileService', '
 					variablename = highlightTerms(elem.name, "code.class.variables.name");
 					variablemodifiers = (variablename.contains("<eshi>") ? strung("code.class.variables.modifiers", iters + "\t", elem.modifiers) : strung("modifiers", iters + "\t", elem.modifiers));
 					variabletype = (variablename.contains("<eshi>") ? highlightTerms(elem.type, "code.class.variables.type") : elem.type);
-					ret += '\n' + iters + variablemodifiers + variabletype /* + " " */+ variablename + ";";
+					ret += '\n' + iters + variablemodifiers + variabletype + " " + variablename + ";";
 				});
 			} else {
 				if (arg instanceof Object && thekey == "") {
