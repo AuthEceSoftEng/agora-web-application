@@ -60,6 +60,9 @@
 				In this page you are encouraged to debug your queries to AGORA. Write your query in the following textbox and press search. Then the query and the response
 				will appear below the textbox. Here are some examples to get you started:
 				<section style="margin-left: 8px; margin-top: 10px; margin-bottom: 0px; width: 670px;">
+					<form ng-submit='search("example0")'>
+						<input type='submit' value='Search for java files containing "filereader"' id='examplesubmit'>
+					</form><br>
 					<form ng-submit='search("example1")'>
 						<input type='submit' value='Search for class "Stack" with methods "int pop" and "void push"' id='examplesubmit'>
 					</form><br>

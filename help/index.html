@@ -41,31 +41,36 @@
 			<section style="max-width: 669px; text-align: justify; margin-bottom: 24px;">
 				AGORA is a Code Search Engine that offers the most advanced features in order to help developers find the source code that they need.
 				<br><br>
-				AGORA offers three types of search:
+				AGORA offers four types of search:
 				<ul>
-					<li>
+					<li style="margin-top: 6px;">
 						<a style="text-decoration: underline;">Simple Search</a><br>
-						Searches the whole directory for the search terms provided.
+						Searches the whole directory for the search terms provided.<br>
+						Example: <a href="../search/#!?q=filereader">Search for filereader usage</a>
 					</li>
-					<li>
+					<li style="margin-top: 6px;">
 						<a style="text-decoration: underline;">Advanced Search</a><br>
 						Provides syntax-aware search for source code. One can search using class names or modifiers (e.g. public), variables, method
-						names and return types, parameters (and their respective modifiers), etc.
+						names and return types, parameters (and their respective modifiers), etc.<br>
+						Examples: <a href='../asearch/#!?q={"access":"default","methods":[{"id":"method1","access":"none","parameters":[{"id":"parameter1"}],"name":"pop","returntype":"int"},{"id":"method2","parameters":[{"id":"parameter1"}],"access":"none","name":"push","returntype":"void"}],"variables":[{"id":"variable1","access":"none"}],"name":"Stack"}'>Search for class "Stack" with methods "int pop" and "void push"</a><br>
+						<a style="margin-left: 79px;" href='../asearch/#!?q={"access":"default","methods":[{"id":"method1","access":"none","parameters":[{"id":"parameter1"}]}],"variables":[{"id":"variable1","access":"none"}],"name":"Export","extends":"WizardPage","imports":"eclipse"}'>Search for class "Export" that extends "WizardPage" and the file imports "eclipse"</a><br>
 					</li>
-					<li>
+					<li style="margin-top: 6px;">
 						<a style="text-decoration: underline;">Snippet Search</a><br>
-						Allows searching by giving code snippets as search terms.
+						Allows searching by giving code snippets as search terms.<br>
+						Example: <a href='../ssearch/#!?q=File myfile %3D new File("myfile.xml");%0ADocumentBuilderFactory dbFactory %3D DocumentBuilderFactory.newInstance();%0ADocumentBuilder dBuilder %3D dbFactory.newDocumentBuilder();%0ADocument doc %3D dBuilder.parse(myfile);'>Search for an XML parser given a code snippet</a>
 					</li>
-					<li>
+					<li style="margin-top: 6px;">
 						<a style="text-decoration: underline;">Project Search</a><br>
-						Allows searching for projects given class names, and other elements (implements and extends) so that small patterns can be found.
+						Allows searching for projects given class names, and other elements (implements and extends) so that small patterns can be found.<br>
+						Example: <a href='../psearch/#!?q=[{"id":"class1","implements":"Model"},{"id":"class2","implements":"View"},{"id":"class3","implements":"Controller"},{"id":"class4","extends":"JFrame"}]'>Search for project following the Model-View-Controller architecture using JFrame</a>
 					</li>
 				</ul><br>
 				Additionally AGORA offers an open RESTful <a href="../api">API</a> for searching.
 			</section>
 			<section style="max-width: 669px; text-align: left; margin: 24px 0px;">
 				For any questions, feel free to contact the administrator at the email
-				<p style="text-align: center; margin-top: 0px;">thdiaman[at]issel[dot]ee[dot]auth[dot]gr</p>
+				<p style="text-align: center; margin-top: 0px;">agora[at]issel[dot]ee[dot]auth[dot]gr</p>
 			</section>
 		</div>
 

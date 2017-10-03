@@ -27,6 +27,8 @@ angular.module('AgoraModule').controller('AgoraCtrlApi', [ 'fileService', '$scop
 	 *        or left undefined for another API search.
 	 */
 	$scope.search = function(anexample) {
+		if (anexample === "example0")
+			$scope.searchTerm = '{"query":{"bool":{"should":[{"match":{"_all":"filereader"}},{"match":{"extension": "java"}}]}}}';
 		if (anexample === "example1")
 			$scope.searchTerm = '{"query":{"bool":{"should":[{"match":{"code.class.name":"Stack"}},{"nested":{"path":"code.class.methods","query":{"bool":{"should":[{"match":{"code.class.methods.name":"push"}},{"term":{"code.class.methods.returntype":"void"}}]}}}},{"nested":{"path":"code.class.methods","query":{"bool":{"should":[{"match":{"code.class.methods.name":"pop"}},{"term":{"code.class.methods.returntype":"int"}}]}}}}]}}}';
 		if (anexample === "example2")
