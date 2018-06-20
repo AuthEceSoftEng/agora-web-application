@@ -8,7 +8,7 @@ angular.module('AgoraModule').directive('myView', function($compile) {
 			data : '='
 		},
 		link : function(scope, elm, attrs) {
-			elm.append($compile('<a class="btn" href=\"/file#?file=' + attrs.datapath + '\"' + 'target=\"_blank\">' + attrs.dataname + '</a>')(scope));
+			elm.append($compile('<a class="btn" href=\"/file#!?file=' + attrs.datapath + '\"' + 'target=\"_blank\">' + attrs.dataname + '</a>')(scope));
 		}
 	};
 });
@@ -23,7 +23,7 @@ angular.module('AgoraModule').directive('myProjectView', function($compile) {
 			data : '='
 		},
 		link : function(scope, elm, attrs) {
-			elm.append($compile('<a class="btn" href=\"/project#?project=' + attrs.datapath + '\"' + 'target=\"_blank\">' + attrs.dataname + '</a>')(scope));
+			elm.append($compile('<a class="btn" href=\"/project#!?project=' + attrs.datapath + '\"' + 'target=\"_blank\">' + attrs.dataname + '</a>')(scope));
 		}
 	};
 });
