@@ -32,7 +32,7 @@ angular.module('AgoraModule').controller('AgoraCtrlApi', [ 'fileService', '$scop
 		if (anexample === "example1")
 			$scope.searchTerm = '{"query":{"bool":{"should":[{"match":{"code.class.name":"Stack"}},{"nested":{"path":"code.class.methods","query":{"bool":{"should":[{"match":{"code.class.methods.name":"push"}},{"term":{"code.class.methods.returntype":"void"}}]}}}},{"nested":{"path":"code.class.methods","query":{"bool":{"should":[{"match":{"code.class.methods.name":"pop"}},{"term":{"code.class.methods.returntype":"int"}}]}}}}]}}}';
 		if (anexample === "example2")
-			$scope.searchTerm = '{"query":{"bool":{"should":[{"match":{"files.code.class.name":"Export"}},{"match":{"files.code.class.extends":"WizardPage"}},{"match":{"files.code.imports":"eclipse"}}]}}}';
+			$scope.searchTerm = '{"query":{"bool":{"should":[{"match":{"code.class.name":"Export"}},{"match":{"code.class.extends":"WizardPage"}},{"match":{"code.imports":"eclipse"}}]}}}';
 		if (anexample === "example3")
 			$scope.searchTerm = '{"query":{"bool":{"should":[{"has_child":{"type":"files","query":{"match":{"code.class.implements":"Model"}}}},{"has_child":{"type":"files","query":{"match":{"code.class.implements":"View"}}}},{"has_child":{"type":"files","query":{"match":{"code.class.implements":"Controller"}}}},{"has_child":{"type":"files","query":{"match":{"code.class.extends":"JFrame"}}}}]}}}';
 		if (anexample === "example4")
